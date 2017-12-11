@@ -28,9 +28,11 @@ boolean movie = true;
 Movie video;
 Movie video2;
 
+Menu myMenu;
 Button1 start_button;
 Button2 back_button;
 Ship ship_button;
+JLeague_heroes all_heroes;
 
 
 //declaring my variables
@@ -45,9 +47,11 @@ void setup()
   //sound = minim.loadFile("counterfrom10.mp3");
   img = loadImage("justice_league.jpg");
   img1 = loadImage("Justice-League.jpg");
+  myMenu = new Menu();
   start_button = new Button1("START",500,680,200,80); 
   back_button = new Button2("BACK", 20,20,100,40);
   ship_button = new Ship("DRIVE BATMAN SHIP", 20,120, 120,40);
+  all_heroes = new JLeague_heroes("CHECK HEROES",0,0,0,0);
 }
 
 
@@ -74,7 +78,11 @@ void screen2()
   img1.resize(1200, 800);
   image(img1, 0, 0);
   back_button.Draw();
-  back_button.Update();
+  //back_button.Update();
+  
+  //myMenu.Updatemenu();
+  myMenu.Displaymenu();
+  
 }//end screen2()
 
 void screen3()
@@ -87,6 +95,7 @@ void draw()
 {
   
   background(175);
+
   
   //create an if statement to 
   if(counter == 0)
