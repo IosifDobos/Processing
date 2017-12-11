@@ -49,7 +49,7 @@ void setup()
 
 void draw()
 {
-
+  background(0);
   //create an if statement to 
   if (counter == 0)
   {
@@ -79,7 +79,7 @@ void movieEvent(Movie video)
 
 void screen1()
 {
-  image(img, 0, 0);
+  //image(img, 0, 0);
   start_button.Draw();
   start_button.update();
   
