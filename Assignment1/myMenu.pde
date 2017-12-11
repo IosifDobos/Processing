@@ -47,16 +47,16 @@ class Menu
   {
     fill(255);
     textSize(14);
-    //if( mousePressed == true)
-    //{
-    //  for (int i = 0; i < n_menu; i++)
-    //  {
-    //    PImage my_image = (position_cursor == 1 ) ? button2 : button1;
-    //    image( my_image, button_x1[i], button_y1[i] );
-    //    int x1 = (button_width - (int)textWidth(menu[i]) ) / 2;
-    //    text( menu[i], button_x1[i] + x1, 30 + button_y1[i]);
-    //  }
-    //}
+    if( mousePressed == true)
+    {
+      for (int i = 0; i < n_menu; i++)
+      {
+        PImage my_image = (position_cursor == 1 ) ? button1 : button2;
+        image( my_image, button_x1[i], button_y1[i] );
+        int x1 = (button_width - (int)textWidth(menu[i]) ) / 2;
+        text( menu[i], button_x1[i] + x1, 30 + button_y1[i]);
+      }
+    }
   }
   
   void Displaymenu()

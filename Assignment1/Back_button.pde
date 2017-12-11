@@ -1,6 +1,6 @@
 class Button2
 {
-  String label;
+  String label = "BACK TO START SCREEN";
   float x;
   float y;
   float w;
@@ -9,13 +9,12 @@ class Button2
   boolean next = false;
 
   //class Button constructor
-  Button2(String labelB, float xpos, float ypos, float widthB, float heightB)
+  Button2()
   {
-    label = labelB;
-    x = xpos;
-    y = ypos;
-    w = widthB;
-    h = heightB;
+    x = 20;
+    y = 100;
+    w = 200;
+    h = 40;
   }
 
   void Update()
@@ -36,20 +35,20 @@ class Button2
   }
   void Draw() 
   {
-      //if ( mouseX > x && mouseX < (x+w) && mouseY > y && mouseY < (y+h) )
-      //{
-      //  fill(255, 255, 0);
-      //} 
-      //else
-      //{
-      //  fill(0);
-      //}
-      ////create a button for returning to the main screen
-      //stroke(141);
-      //rect(x, y, w, h, 40);
-      //textAlign(CENTER, CENTER);
-      //fill(255, 255, 255);
-      //text(label, x+(w/2), y+(h/2));
+      if ( mouseX > x && mouseX < (x+w) && mouseY > y && mouseY < (y+h) )
+      {
+        fill(255, 255, 0);
+      } 
+      else
+      {
+        fill(0);
+      }
+      //create a button for returning to the main screen
+      stroke(141);
+      rect(x, y, w, h, 40);
+      textAlign(CENTER, CENTER);
+      fill(255, 255, 255);
+      text(label, x+(w/2), y+(h/2));
   
       ////create a button for suits screen
       //stroke(141);

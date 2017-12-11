@@ -1,5 +1,5 @@
 class Button1{
-  String label; //button label
+  String label = "START"; //button label
   float x;  //top left corner x position
   float y;  //top left corner y position
   float w;  //width of button
@@ -7,13 +7,12 @@ class Button1{
   boolean yes = false;
   
   //class Button constructor
-  Button1(String labelBtn, float xpos, float ypos, float widthBtn, float heightBtn)
+  Button1()
   {
-     label = labelBtn;
-     x = xpos;
-     y = ypos;
-     w = widthBtn;
-     h = heightBtn;
+     x = 500;
+     y = 680;
+     w = 200;
+     h = 80;
   }
   void update()
   {

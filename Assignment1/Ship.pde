@@ -7,17 +7,13 @@ class Ship
   float hcor;  //height of button
   boolean yes = false;
    
-  Ship(String lbtn, float xbtn, float ybtn, float wbtn, float hbtn)
+  Ship()
   {
-    labelB = lbtn;
-    xcor = xbtn;
-    ycor = ybtn;
-    wcor = wbtn;
-    hcor = hbtn;
+    
   }
   
   
-  void Update()
+  void UpdateShip()
   {
     if( mouseX > xcor && mouseX < (xcor+wcor) && mouseY > ycor && mouseY < (ycor+hcor))
      {
@@ -36,7 +32,7 @@ class Ship
      }
   }
   
-  void Draw()
+  void DisplayShip()
   {
      if( mouseX > xcor && mouseX < (xcor+wcor) && mouseY > ycor && mouseY < (ycor+hcor))
      {
