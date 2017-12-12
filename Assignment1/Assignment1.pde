@@ -20,7 +20,7 @@ int picture_index = 1;
 float direction;
 float x=255,y=100,z=140; 
 float image_width, image_height;
-int pic_index3 = 1; // for the weapons
+int pic_index = 1, pic_index3 = 1, pic_index4 = 1; // for the weapons-> heroes -> and batman ship
 boolean movie = true;
 
 //create the classes used within this program
@@ -70,6 +70,12 @@ void setup()
     type_hero_list=new Heroes_list( index_arraylist, "Primary" ); 
     h_list.add(type_hero_list);  
   }
+  HeroesWeapons weapon;
+  for(int index_arraylist=1;index_arraylist<3;index_arraylist++)
+  {
+    weapon=new HeroesWeapons(index_arraylist); 
+    w_list.add(weapon);  
+  }
   //
   //for(int index_arraylist=4;index_arraylist<7;index_arraylist++)
   //{
@@ -79,8 +85,7 @@ void setup()
 }
 
 ArrayList <Heroes_list> h_list = new ArrayList <Heroes_list>();
-ArrayList <Heroes_list> h_list2 = new ArrayList <Heroes_list>();
-
+ArrayList <HeroesWeapons> w_list= new ArrayList <HeroesWeapons>();
 
 void draw()
 {
@@ -132,39 +137,22 @@ void display_menu( int a )
       //armor.display();// drive batman ship
       break;
     }
-    case 5:
-    {
-      //table_record.display(); // display  records
-      break;
-    }
-    case 6: 
-    {
-        
-    }
     
-    default:
-    {
-      display.border(0);
-      fill(255);
-      stroke(255);
-      textSize(20);
-      text("How did you end up here, buddy?", width * 0.38f, height*0.5f);
-    }
   } // End switch
 }//end function change_menu
 
 
 //implement function mouse clicked this will allow user to navigate trough different pages
-void mouseClicked()
-{
-  float box1_x=100, box1_y=30;
-  float box2_x=100 * 2 +20;
-  float box3_x= 100*3 +40;
-  float box4_x=920, box4_y=30;
-  float box5_x=width*0.45, box5_y=100, size_x1=120, size_y1=45;
+//void mouseClicked()
+//{
+//  float box1_x=100, box1_y=30;
+//  float box2_x=100 * 2 +20;
+//  float box3_x= 100*3 +40;
+//  float box4_x=920, box4_y=30;
+//  float box5_x=width*0.45, box5_y=100, size_x1=120, size_y1=45;
   
-  int size_x=100, size_y=50;
-}
+//  int size_x=100, size_y=50;
+//}
 
 
 
@@ -210,3 +198,131 @@ void movieEvent(Movie video)
 {
   video.read();
 }
+
+void mouseClicked()
+{    
+  float box1_x=100, box1_y=30;
+  float box2_x=100 * 2 +20;
+  float box3_x= 100*3 +40;
+  float box4_x=920, box4_y=30;
+  float box5_x=width*0.45, box5_y=100, size_x1=120, size_y1=45;
+      
+  int size_x=100, size_y=50;
+  
+  if(change_screen==4) // drive batman ship
+  {
+       //left arrow
+    if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+    { 
+      if(pic_index4==0) 
+      {
+        //pic_index4=m_l.size()-1;
+      }
+      else 
+      {
+        pic_index4--;
+      }
+    }
+    // right arrow
+    //if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+    //{ 
+    //  if(pic_index4==m_l.size()-1) 
+    //  {
+    //    pic_index4=0;
+    //  }
+    //  else 
+    //  {
+    //    pic_index4++;
+    //  }
+    //}
+    
+    
+  }
+  else
+  {
+    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // map button pressed
+    {
+      new_screen=4;
+      change_screen=1;
+    }
+  }
+  
+  
+  if(change_screen==3) // weapons
+  { 
+    // first box  arrows
+    //left arrow
+    if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+    { 
+      if(pic_index==0) 
+      {
+        pic_index= h_list.size()-1;
+      }
+      else 
+      {
+        pic_index--;
+      }
+    }
+    // right arrow
+    if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+    { 
+      if(pic_index == h_list.size()-1) 
+      {
+        pic_index=0;
+      }
+      else 
+      {
+        pic_index++;
+      }
+    }
+   
+  }
+  else
+  {
+    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // weapons button pressed
+    {
+      new_screen=3;
+      change_screen=1;  
+    }
+  }
+    
+  
+  if(change_screen==6)  // armor
+  {
+     //left arrow
+    if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+    { 
+      if(pic_index3==0) 
+      {
+        pic_index3=h_list.size()-1;
+      }
+      else 
+      {
+        pic_index3--;
+      }
+      
+    }
+    // right arrow
+    if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+    { 
+      if(pic_index3==h_list.size()-1) 
+      {
+        pic_index3=0;
+      }
+      else 
+      {
+        pic_index3++;
+      }
+      
+    }
+  }
+  else
+  {
+    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y)) // armor button pressed
+    {
+       new_screen=6;
+       change_screen=1;
+    }
+  }
+  
+} // end mouse clicked 
