@@ -1,7 +1,6 @@
 class StartScreen
 {
-  //char[] name=new char[13];
-  //boolean box_clicked=false;
+
   float cx, cy, radius, theta, speed, frequency;
   int begin, duration, time;
   color c;
@@ -52,7 +51,6 @@ class StartScreen
     
     if( time == 0 )
     {
-       //delay(200); 
        new_screen=3; // This will make it go through screen 2 then to screen 3
        screen=2; // This will run for 3 seconds and then it will go to screen 3
     }
