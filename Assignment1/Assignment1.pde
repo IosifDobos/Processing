@@ -1,47 +1,57 @@
-/*
-   Program created for Object Oriented Programming
-   Author: Iosif Dobos, C16735789, DT228/2
-   Date: 03/11/2017
-   Created in Processing, @copyright all rights are reserved
- */
+import processing.sound.*;
 
-//imort my library files
-import processing.video.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 
 void setup()
 {
-  font = createFont("Verdana", 200, true);
+  font = createFont("Verdana", 20, true);
   //fullScreen();
   size(1200,800, P3D);
-  background(57,67,47);
+  background(2,21,5);
   image_width= width * 0.08f; 
   image_height= width * 0.08f;
   frameRate(60);
   smooth();
+  
+  music = new SoundFile(this, "JL original song.mp3");
+  music.play();
+  
+  my_file = loadStrings("superman.txt");
+  efile = join(my_file, " ");
+  my_file1 = loadStrings("cyborg.txt");
+  efile1 = join(my_file1, " ");
 
-  Weapon_list type_weapon_list;
+  Weapons_list type_weapon_list;
   for (int i = 1; i < 6; i++)
   {
-    type_weapon_list=new Weapon_list(i, "Primary"); 
-    w_l.add(type_weapon_list);
+    type_weapon_list=new Weapons_list(i, "Primary"); 
+    w_list.add(type_weapon_list);
   }
 
-  HeroesList ar;
-  for (int i=1; i<3; i++)
+  HeroesList heroes_list;
+  for (int i = 1; i < 6; i++)
   {
-    ar=new HeroesList(i); 
-    a_l.add(ar);
+    heroes_list = new HeroesList(i); 
+    h_list.add(heroes_list);
   }
+  
 
 }
 
 
-
-PImage img, img1;
+// Global declaration area
 PFont font;
+String[] my_file, my_file1, my_file2, my_file3;
+String efile, efile1;
 float direction;
-float x=26, y=52, z=8;     // The colors from fill_clock and display_clock
-int condition=0;             // Variable used for the color of the loading screen
+float xcol = 255, ycol = 100, zcol = 10; 
+int condition = 0;             // Variable used for the color of the loading screen
 float image_width, image_height;
 int x_coord=10, y_coord=10;
 boolean save_cond, load_cond=false, delete_cond;
@@ -51,35 +61,20 @@ String Profile, file;
 int pic_index=1; // for the weapons primary and secondary
 int pic_index3=1; // for the the heroes suits
 int pic_index4=1; // for the map
-boolean movie = true;
 
-//create the classes used within this program
-//import the Minim class for audio file
-//Minim minim;
-//AudioPlayer sound;
-Movie video;
-Movie video2;
 
-//Menu myMenu;
-//Button1 start_button;
-//Button2 back_button;
-//Ship ship_button;
-//JLeague_heroes heroes;
-//Loading_screen ld_screen;
-//Loading_screen2 ld_new_screen;
-//Border display = new Border();
-//Wheroes  w_heroes;
-//DriveBatmanShip dr_ship;
+// Object declaration area
 
-ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
-ArrayList <HeroesList> a_l= new ArrayList <HeroesList>();
+ArrayList <Weapons_list> w_list = new ArrayList <Weapons_list>();
+ArrayList <HeroesList> h_list = new ArrayList <HeroesList>(); 
 
+SoundFile music;
 Border display=new Border();
-Loading paint= new Loading();
-Loading2 create= new Loading2(730, 600); 
-Weapons get=new Weapons(250, 250);
-StartScreen disp= new StartScreen(); 
-Maps map=new Maps(250, 250);
+DriveBatmanShip batman = new DriveBatmanShip();
+Loading loading = new Loading(); 
+HeroesWeapons get = new HeroesWeapons(250, 250);
+StartScreen display_screen = new StartScreen(); 
+Map map=new Map(250, 250);
 Heroes heroes=new Heroes(250, 250);  
 
 void draw()
@@ -93,17 +88,17 @@ void game_state(int a)
   {
   case 0:  // The welcome screen
     {
-      disp.start_screen();
+      display_screen.start_screen();
       break;
     }
   case 1: // The loading screen
     {
-      paint.display_loading(new_screen);
+      loading.display_loading(new_screen);
       break;
     }
   case 2:     // The 2nd loading screen
     {
-      paint.display_loading(new_screen);  
+      loading.display_loading(new_screen);  
       break;
     }
   case 3: // main menu
@@ -118,7 +113,7 @@ void game_state(int a)
     }
   case 5:
     {
-      //table_record.display(); // display  records
+      batman.display_ship();
       break;
     }
   case 6: 
@@ -189,7 +184,7 @@ void mouseClicked()
     { 
       if (pic_index==0) 
       {
-        pic_index=w_l.size()-1;
+        pic_index=w_list.size()-1;
       } else 
       {
         pic_index--;
@@ -198,7 +193,7 @@ void mouseClicked()
     // right arrow
     if (mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
     { 
-      if (pic_index==w_l.size()-1) 
+      if (pic_index==w_list.size()-1) 
       {
         pic_index=0;
       } else 
@@ -208,24 +203,16 @@ void mouseClicked()
     }
     // end first box
   }
-  //else
-  //{
-  //  if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // weapons button pressed
-  //  {
-  //    new_screen=3;
-  //    screen=1;  
-  //  }
-  //}
 
 
-  if (screen==6)  // armor
+  if (screen==6)  // Heroes list
   {
     //left arrow
     if (mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
     { 
       if (pic_index3==0) 
       {
-        pic_index3=a_l.size()-1;
+        pic_index3=h_list.size()-1;
       } else 
       {
         pic_index3--;
@@ -234,7 +221,7 @@ void mouseClicked()
     // right arrow
     if (mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
     { 
-      if (pic_index3==a_l.size()-1) 
+      if (pic_index3==h_list.size()-1) 
       {
         pic_index3=0;
       } else 
@@ -251,13 +238,13 @@ void mouseClicked()
     }
   }
 
-  if (screen==5)
+  if ( screen == 5)
   {
     if (delete_cond==false)
     {
       if ((mouseX > box5_x) &&  (mouseX< (size_x1+box5_x)) && (mouseY> height- (size_y1+box5_y)) && (mouseY< height - box5_y))
       {
-        delete_cond=true;
+        //delete_cond=true;
         //table_record.delete_record();
       }
     } else
