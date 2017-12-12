@@ -12,30 +12,20 @@ class Heroes
   void display()
   {
     display.border(1);
-    //draw.clock();
-    //display.name_box();
+
     
     fill(0);
     strokeWeight(2);
     textSize(30);
-    text("Choose an armor:", 50, 80);
     stroke(25,45,90);    
     
     fill(1,2,15);
     
     // The box for the armor
     beginShape();
-    vertex(this.pos_x-draw_size, this.pos_y-corner);
-    vertex(this.pos_x-corner, this.pos_y-draw_size);
-    
-    vertex(this.pos_x-corner, this.pos_y+draw_size);
-    vertex(this.pos_x-draw_size, this.pos_y+corner);
-    
-    vertex(this.pos_x+draw_size, this.pos_y+corner);
-    vertex(this.pos_x+corner, this.pos_y+draw_size);
-    
-    vertex(this.pos_x+corner, this.pos_y-draw_size);
-    vertex(this.pos_x+draw_size, this.pos_y-corner);
+      fill(93, 142, 97);
+      stroke(10, 18, 11);
+      rect(50, 50, 500, 500);
     endShape(CLOSE);
     
     
