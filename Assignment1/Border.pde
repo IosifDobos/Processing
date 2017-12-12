@@ -13,16 +13,13 @@ class Border
     if(line==0)
     {
       line(x_coord_copy, height * 0.88, 1095, height*0.88); 
-      //name_box();
       map_button();
       weapon_button();
       heroes_button();
       ship_button();
       
-      //save_button();
       
     }
-    //delete_button();
   } // end border
   
   void map_button()
@@ -42,20 +39,17 @@ class Border
     }
     
     beginShape();
-    //vertex(box1_x, height- box1_y);
-    //vertex(size_x + box1_x,height- box1_y);
-    //vertex(size_x + box1_x,height- ((size_y+box1_y-10)));  // top right corner
-    //vertex(size_x+ box1_x -10,height- size_y-box1_y);
-    //vertex(box1_x+10, height- size_y -box1_y);   // top left corner
-    //vertex(box1_x, height- ((size_y + box1_y)-10)); 
-    fill(93, 142, 97);
-    stroke(10, 18, 11);
-    rect(50, 50, 500, 700);
+    vertex(box1_x, height- box1_y);
+    vertex(size_x + box1_x,height- box1_y);
+    vertex(size_x + box1_x,height- ((size_y+box1_y-10)));  // top right corner
+    vertex(size_x+ box1_x -10,height- size_y-box1_y);
+    vertex(box1_x+10, height- size_y -box1_y);   // top left corner
+    vertex(box1_x, height- ((size_y + box1_y)-10)); 
     endShape(CLOSE);
     
     fill(200,2,15);
     textSize(20);
-    text("Map",box1_x+ (box1_x *0.3f), height- (box1_y+(box1_y *0.3f)));
+    text("Maore",box1_x+ (box1_x *0.3f), height- (box1_y+(box1_y *0.3f)));
     
   }
   
@@ -73,15 +67,12 @@ class Border
     }
     
     beginShape();
-    //vertex(box2_x, height- box1_y);
-    //vertex(size_x+box2_x,height- box1_y);
-    //vertex(size_x + box2_x,height- ((size_y+box1_y)-10));  // top right corner
-    //vertex(size_x + box2_x -10,height- size_y-box1_y);
-    //vertex(box2_x+10, height- size_y - box1_y);   // top left corner
-    //vertex(box2_x, height- ((size_y +box1_y)-10)); 
-    fill(93, 142, 97);
-    stroke(10, 18, 11);
-    rect(50, 50, 500, 700);
+    vertex(box2_x, height- box1_y);
+    vertex(size_x+box2_x,height- box1_y);
+    vertex(size_x + box2_x,height- ((size_y+box1_y)-10));  // top right corner
+    vertex(size_x + box2_x -10,height- size_y-box1_y);
+    vertex(box2_x+10, height- size_y - box1_y);   // top left corner
+    vertex(box2_x, height- ((size_y +box1_y)-10));
     endShape(CLOSE);
     
     fill(200,2,15);
