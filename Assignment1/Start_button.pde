@@ -1,23 +1,13 @@
-class Button1{
-  PFont font;
-  String label = "START"; //button label
-  float x;  //top left corner x position
-  float y;  //top left corner y position
-  float w;  //width of button
-  float h;  //height of button
-  //create variables for counting down seconds
+class StartScreen
+{
+  //char[] name=new char[13];
+  //boolean box_clicked=false;
   float cx, cy, radius, theta, speed, frequency;
-  color c;
-  
-  //create variables for seconds counting down
   int begin, duration, time;
-  
-  boolean yes = false;
-  
-  //class Button constructor
-  Button1()
+  color c;
+
+  StartScreen()
   {
-     font = createFont("Verdana", 200, true);
     
      c = color(0, 255, 0);
      cx = width/2;
@@ -29,35 +19,17 @@ class Button1{
      
      begin = millis();
      time = duration = 10;
-     
-     x = 500;
-     y = 680;
-     w = 200;
-     h = 80;
   }
+  
   void update()
   {
      theta += speed;
-     
-     //if( mouseX > x && mouseX < (x+w) && mouseY > y && mouseY < (y+h))
-     //{
-     //   fill(255,255,0); 
-     //}
-     //if(mouseX > x && mouseX < (x+w) && mouseY > y && mouseY < (y+h) && mousePressed)
-     //{
-     //  //yes = true;
-     // counter = 1;
-        
-     //}
-     //if(yes) 
-     //{
-     //  rect(25,25,50,50); 
-     //}
   }
-  void Draw()
+  
+  void start_screen()
   {
-    
-     stroke(0,255,0);
+    update();
+    stroke(0,255,0);
      noFill();
      ellipse(cx, cy, radius*2, radius*2);
      int trailLength = 10;
@@ -72,25 +44,21 @@ class Button1{
     
     if (time > 0)
     {  
-        textFont(font);
+        //sound.play();
+        textSize(100);
         time = duration - (millis() - begin)/1000;
-        text(time, width/2 - 70, height/2 + 70);
+        text(time, width/2 , height/2-25 );
+    }
+    
+    if( time == 0 )
+    {
+       //delay(200); 
+       new_screen=3; // This will make it go through screen 2 then to screen 3
+       screen=2; // This will run for 3 seconds and then it will go to screen 3
     }
     
     
-     //if( mouseX > x && mouseX < (x+w) && mouseY > y && mouseY < (y+h))
-     //{
-     //   fill(255,255,0); 
-     //}
-     //else
-     //{
-     //   fill(0); 
-     //}
-     //stroke(141);
-     //rect(x,y,w,h,40);
-     //textAlign(CENTER, CENTER);
-     //fill(255,255,255);
-     //text(label, x+(w/2), y+(h/2));
-  }
+  }// start_screen()
   
-}
+  
+}// end class start screen
