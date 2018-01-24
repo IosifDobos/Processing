@@ -1,7 +1,6 @@
 class Border
 {
   
-  
   void border(int line)
   {
     stroke(15,23,6);    
@@ -10,7 +9,7 @@ class Border
     
 
     
-    if(line==0)
+    if( line == 0)
     {
       line(x_coord_copy, height * 0.88, 1095, height*0.88); 
       map_button();
@@ -25,10 +24,13 @@ class Border
   void map_button()
   {
     
-    float box1_x=100, box1_y=30; int size_x=100, size_y=50;
+    float box1_x = 100;
+    float box1_y = 30; 
+    int size_x = 100;
+    int size_y = 50;
    
     
-    if(screen==4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
+    if( screen == 4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
       
@@ -55,9 +57,12 @@ class Border
   
   void weapon_button()
   {
-    float box2_x=100 * 2 +20, box1_y=30;int size_x=100, size_y=50;
+    float box2_x = 100 * 2 +20;
+    float box1_y = 30;
+    int size_x = 100; 
+    int size_y = 50;
     
-    if(screen==3 ||(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
+    if( screen == 3 ||(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
     }

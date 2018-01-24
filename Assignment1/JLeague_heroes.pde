@@ -121,7 +121,7 @@ class HeroesList
     image(this.img, 185,150);
     
     textSize(20);
-    if(pic_index3==1)
+    if(pic_index3 == 1)
     {
       text("Name: "+this.name, 150, 395);
 

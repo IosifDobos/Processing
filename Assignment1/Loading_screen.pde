@@ -4,7 +4,7 @@ class Loading
   
   Loading()
   {
-    this.next_screen2=0;
+    this.next_screen2 = 0;
   }
   
   void display_loading(int a)
