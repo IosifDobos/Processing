@@ -57,6 +57,8 @@ int x_coord=10, y_coord=10;
 boolean save_cond, load_cond=false, delete_cond;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
 int index=0, screen=0, new_screen, index_key=0;
+int counter, counter_1;
+boolean yes;
 String Profile, file;
 int pic_index=1; // for the weapons primary and secondary
 int pic_index3=1; // for the the heroes suits
