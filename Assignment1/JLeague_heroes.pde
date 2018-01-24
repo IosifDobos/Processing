@@ -5,8 +5,8 @@ class Heroes
   
   Heroes(float pos_x, float pos_y)
   {
-    this.pos_x= pos_x;
-    this.pos_y= pos_y;
+    this.pos_x = pos_x;
+    this.pos_y = pos_y;
   }
   
   void display()
@@ -77,7 +77,7 @@ class HeroesList
   
   HeroesList(int a)
   {
-    this.id=a;
+    this.id = a;
     this.img= loadImage(dataPath("Image_h"+a+".png"));
     
     switch(a)

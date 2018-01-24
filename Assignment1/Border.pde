@@ -10,7 +10,7 @@ class Border
     
 
     
-    if(line==0)
+    if(line == 0)
     {
       //line(1095,y_coord_copy,1095,height-y_coord_copy);
       line(x_coord_copy, height * 0.88, 1095, height*0.88); 
@@ -29,10 +29,13 @@ class Border
   void map_button()
   {
     
-    float box1_x=100, box1_y=30; int size_x=100, size_y=50;
+    float box1_x = 100;
+    float box1_y = 30; 
+    int size_x = 100;
+    int size_y = 50;
    
     
-    if(screen==4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
+    if(screen == 4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
       
@@ -61,7 +64,7 @@ class Border
   {
     float box2_x=100 * 2 +20, box1_y=30;int size_x=100, size_y=50;
     
-    if(screen==3 ||(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
+    if(screen == 3 ||(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
     }
@@ -90,7 +93,7 @@ class Border
     float box3_x= 100*3 +40, box1_y= 30 ;int size_x=100, size_y=50;
   
     
-    if( screen==6 || (mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
+    if( screen == 6 || (mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
     }
@@ -120,7 +123,7 @@ class Border
   {
     float box4_x=920, box4_y=30, size_x=100, size_y=50;
     
-    if(screen==5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
+    if(screen == 5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
     {
       fill(131,156,165);  
     }

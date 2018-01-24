@@ -172,21 +172,21 @@ void mouseClicked()
   {
     if ((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // map button pressed
     {
-      new_screen=4;
-      screen=1;
+      new_screen = 4;
+      screen = 1;
     }
   }
 
 
-  if (screen==3) // weapons
+  if (screen == 3) // weapons
   { 
     // first box  arrows
     //left arrow
     if (mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
-    { 
-      if (pic_index==0) 
+    {  
+      if (pic_index == 0) 
       {
-        pic_index=w_list.size()-1;
+        pic_index = w_list.size()-1;
       } else 
       {
         pic_index--;
@@ -195,9 +195,9 @@ void mouseClicked()
     // right arrow
     if (mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
     { 
-      if (pic_index==w_list.size()-1) 
+      if (pic_index == w_list.size()-1) 
       {
-        pic_index=0;
+        pic_index = 0;
       } else 
       {
         pic_index++;
@@ -207,14 +207,14 @@ void mouseClicked()
   }
 
 
-  if (screen==6)  // Heroes list
+  if (screen == 6)  // Heroes list
   {
     //left arrow
     if (mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
     { 
-      if (pic_index3==0) 
+      if (pic_index3 == 0) 
       {
-        pic_index3=h_list.size()-1;
+        pic_index3 = h_list.size()-1;
       } else 
       {
         pic_index3--;
@@ -223,9 +223,9 @@ void mouseClicked()
     // right arrow
     if (mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
     { 
-      if (pic_index3==h_list.size()-1) 
+      if (pic_index3 == h_list.size()-1) 
       {
-        pic_index3=0;
+        pic_index3 = 0;
       } else 
       {
         pic_index3++;
@@ -235,50 +235,48 @@ void mouseClicked()
   {
     if ((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y)) // armor button pressed
     {
-      new_screen=6;
-      screen=1;
+      new_screen = 6;
+      screen = 1;
     }
   }
 
   if ( screen == 5)
   {
-    if (delete_cond==false)
+    if (delete_cond == false)
     {
       if ((mouseX > box5_x) &&  (mouseX< (size_x1+box5_x)) && (mouseY> height- (size_y1+box5_y)) && (mouseY< height - box5_y))
       {
-        //delete_cond=true;
-        //table_record.delete_record();
+
       }
     } else
     {
       if (mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
       {
-        delete_cond=false;
+        delete_cond = false;
       }
     }
   } else
   {
-    if ((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y + box4_y)) && (mouseY< height - box4_y))  // record button pressed
+    if ((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y + box4_y)) && (mouseY< height - box4_y))
     {
-      new_screen=5;
-      screen=1;      //record
+      new_screen = 5;
+      screen = 1;   
     }
   }// end else
 
   if ( screen == 3 || screen == 4 || screen == 6 ) 
   {
-    if (save_cond==false)
+    if (save_cond == false)
     {
       if (mouseX>box4_x+5 && mouseX<box4_x+95 && mouseY>height-box4_y-125 && mouseY<height-box4_y-90)
       {
-        save_cond=true;
-        //table_record.store();
+
       }
     } else
     {
       if (mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
       {
-        save_cond=false;
+
       }
     }
   } //end if (s 3,4,5,6)
